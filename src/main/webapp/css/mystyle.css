@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-image: url('../imgages/Toronto.jpg');
+    background-image: url('../images/Toronto.jpg');
     background-repeat: no-repeat;    
 }
 #page-welcome header {
