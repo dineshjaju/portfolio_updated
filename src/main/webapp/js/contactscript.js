@@ -15,6 +15,7 @@ function validateForm(argument)
 			success : function()
 			{
 				alert('Message sent successfully');
+				$('#success').html("<h1>Message sent successfully</h1>")
 			},
 			error : function()
 			{
