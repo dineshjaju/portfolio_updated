@@ -1,5 +1,6 @@
 function validateForm(argument) 
 {
+	event.preventDefault();
 	var name = document.forms["contactForm"]["name"].value;
 	var emailId = document.forms["contactForm"]["email"].value;
 	var message = document.forms["contactForm"]["message"].value;
