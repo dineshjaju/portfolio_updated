@@ -38,8 +38,8 @@ function validateForm(argument)
  		 		$('#success').html("<div class='alert alert-danger'>");
             	$('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
             	 .append( "</button>");
-            	$('#success > .alert-danger').append("<strong>Sorry "+name+" it seems that my mail server is not responding...</strong> Could you please email me directly to");
-            	$('#success > .alert-danger').append(" dineshkumaraju@gmail.com. Sorry for the inconvenience!");
+            	$('#success > .alert-danger').append("<strong>Sorry "+name+" it seems that my mail server is not responding...</strong> Could you please email me directly to ");
+            	$('#success > .alert-danger').append(" <a href='mailto:dineshkumaraju@gmail.com'>dineshkumaraju@gmail.com</a>. Sorry for the inconvenience!");
  	        	$('#success > .alert-danger').append('</div>'); 				
  				//clear all fields
  				$('#contactForm').trigger("reset");
