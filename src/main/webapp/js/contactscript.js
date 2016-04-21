@@ -14,7 +14,7 @@ function validateForm(argument)
 
 	$.ajax(
 		{
-			url:"mail/contact_me.php1",
+			url:"mail/contact_me.php",
 			type: "POST",
 			data: {name: name, email: emailId, message: message},
 			cache: false,
