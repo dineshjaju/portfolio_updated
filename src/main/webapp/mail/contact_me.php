@@ -1,6 +1,6 @@
 <?php
 
-require_once 'lib/swift_required.php';
+require_once 'lib/swift_required.php'; 
 
 /*// check if fields passed are empty
 if(empty($_POST['name'])  		||

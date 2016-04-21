@@ -3,13 +3,10 @@ function validateForm(argument)
 	event.preventDefault();
 	var name = document.forms["contactForm"]["name"].value;
 	var emailId = document.forms["contactForm"]["email"].value;
-	var message = document.forms["contactForm"]["message"].value;
-	//alert(name + emailId + message);
+	var message = document.forms["contactForm"]["message"].value;	
 
-	if (name.indexOf(' ') >= 0) {
-		  //alert(name);
-	 	  name = name.split(' ').slice(0, Number.POSITIVE_INFINITY).join(' ');
-	 	  //alert(name);
+	if (name.indexOf(' ') >= 0) {		  
+	 	  name = name.split(' ').slice(0, Number.POSITIVE_INFINITY).join(' ');	 	  
      } 
 
 	$.ajax(
