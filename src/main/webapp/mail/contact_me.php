@@ -29,7 +29,7 @@ mail($to,$email_subject,$email_body,$headers);*/
 		
 
 // make sure you get these SMTP settings right
-$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl") 
+$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 587, "tls") 
     ->setUsername('dineshkumarjaju@gmail.com')
     ->setPassword('pc2727pcds');
 
