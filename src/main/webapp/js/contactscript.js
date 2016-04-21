@@ -7,7 +7,9 @@ function validateForm(argument)
 	//alert(name + emailId + message);
 
 	if (name.indexOf(' ') >= 0) {
+		  alert(name);
 	 	  name = name.split(' ').slice(0, -1).join(' ');
+	 	  alert(name);
      } 
 
 	$.ajax(
