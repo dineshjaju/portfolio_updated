@@ -7,14 +7,14 @@ function validateForm(argument)
 	//alert(name + emailId + message);
 
 	if (name.indexOf(' ') >= 0) {
-		  alert(name);
-	 	  name = name.split(' ').slice(0, -1).join(' ');
-	 	  alert(name);
+		  //alert(name);
+	 	  name = name.split(' ').slice(0, Number.POSITIVE_INFINITY).join(' ');
+	 	  //alert(name);
      } 
 
 	$.ajax(
 		{
-			url:"mail/contact_me.php",
+			url:"mail/contact_me.php1",
 			type: "POST",
 			data: {name: name, email: emailId, message: message},
 			cache: false,
