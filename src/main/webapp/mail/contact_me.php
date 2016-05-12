@@ -1,47 +1,20 @@
 <?php
 
-//require_once 'lib/swift_required.php'; 
+# Include the Autoloader (see "Libraries" for install instructions)
+require 'vendor/autoload.php';
+use Mailgun\Mailgun;
 
-// check if fields passed are empty
-if(empty($_POST['name'])  		||
-   empty($_POST['email']) 		|| 
-   empty($_POST['message'])	||
-   !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
-   {
-	echo "No arguments Provided!";
-	return false;
-   }
-	
-$name = $_POST['name'];
-$email_address = $_POST['email'];
-$message = $_POST['message'];
-	
-// create email body and send it	
-$to = 'support@dineshjaju.com'; // put your email address here
-$email_subject = "Contact form submitted by:  $name";
-$email_body = "You have received a new message. \n\n".
-				  " Here are the details:\n \nName: $name \n ".
-				  "Email: $email_address\n Message: \n $message";
-$headers = "From: noreply@dineshjaju.com\n"; 
-// Since this email form will be generated from your server. The From email address will be best using something like this noreply@yourdomain.com
-$headers .= "Reply-To: $email_address";	
-mail($to,$email_subject,$email_body,$headers);
+# Instantiate the client.
+$mgClient = new Mailgun('key-61f5c5ad90ed0752759c11abf3231944');
+$domain = "sandboxd2aa3c8a94f247c2bd8ee1d83fa44855.mailgun.org";
+
+# Make the call to the client.
+$result = $mgClient->sendMessage("$domain",
+                  array('from'    => 'Mailgun Sandbox <postmaster@sandboxd2aa3c8a94f247c2bd8ee1d83fa44855.mailgun.org>',
+                        'to'      => 'dineshjaju <dineshkumarjaju@gmail.com>',
+                        'subject' => 'Hello dineshjaju',
+                        'text'    => 'Congratulations dineshjaju, you just sent an email with Mailgun!  You are truly awesome!  You can see a record of this email in your logs: https://mailgun.com/cp/log .  You can send up to 300 emails/day from this sandbox server.  Next, you should add your own domain so you can send 10,000 emails/month for free.'));
+    
 		
-
-/*// make sure you get these SMTP settings right
-$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 587, "tls") 
-    ->setUsername('dineshkumarjaju@gmail.com')
-    ->setPassword('');
-
-$mailer = Swift_Mailer::newInstance($transport);
-// the message itself
-$message = Swift_Message::newInstance('email subject')
-    ->setFrom(array('dineshkumarjaju@gmail.com' => 'no reply'))
-    ->setTo(array('dineshkumarjaju@gmail.com'))
-    ->setBody("email body");
-
-$result = $mailer->send($message);
-*/
-return true;
 
 ?>
