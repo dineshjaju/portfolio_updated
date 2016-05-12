@@ -13,7 +13,7 @@ function validateForm(argument)
 
 	$.ajax(
 		{
-			url:"/sendMail",
+			url:"./sendMail",
 			type: "POST",
 			data: {name: name, email: emailId, message: message},
 			cache: false,
