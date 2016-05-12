@@ -46,4 +46,9 @@ public class SendSimpleMail {
 		return "success " + email.toString() ;
 	}
 
+	@RequestMapping(value="/")
+	public String home() 
+	{
+		return "index";
+	}
 }
