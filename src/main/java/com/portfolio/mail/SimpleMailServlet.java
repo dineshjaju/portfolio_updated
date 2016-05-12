@@ -40,7 +40,7 @@ public class SimpleMailServlet extends HttpServlet
 		MultivaluedMapImpl formData = new MultivaluedMapImpl();
 		formData.add("from", "PortFolio Contact " + name +" <mailgun@dineshjaju.com>");
 		formData.add("to", "dineshkumarjaju@gmail.com"); 
-		formData.add("from", "Excited " + name +" <mailgun@dineshjaju.com>");
+		formData.add("from", "PortFolio Contact " + name +" <mailgun@dineshjaju.com>");
 		formData.add("to", "dineshkumarjaju@gmail.com");
 		//formData.add("to", "YOU@YOUR_DOMAIN_NAME");
 		formData.add("subject", "Portfolio Mail");
