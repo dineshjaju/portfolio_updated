@@ -14,7 +14,7 @@ function validateForm(argument)
 	$.ajax(
 		{
 			url:"./sendMailTest",
-			type: "GET",
+			type: "POST",
 			data: {name: name, emailId: emailId, message: message},
 			cache: false,
 			success : function(data)
