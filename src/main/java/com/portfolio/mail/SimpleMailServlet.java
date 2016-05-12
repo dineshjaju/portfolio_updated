@@ -20,7 +20,7 @@ public class SimpleMailServlet extends HttpServlet
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+			throws ServletException, IOException { 
 		// TODO Auto-generated method stub
 
 		String name = req.getParameter("name");
