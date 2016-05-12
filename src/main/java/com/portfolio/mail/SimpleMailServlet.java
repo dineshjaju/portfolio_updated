@@ -31,6 +31,8 @@ public class SimpleMailServlet extends HttpServlet
 
 	public  String SendSimpleMessage(String name, String emailId, String message) 
 	{
+		name = name.replaceAll("\\s+","");
+		
 		Client client = Client.create();
 		client.addFilter(new HTTPBasicAuthFilter("api", 
 				"key-61f5c5ad90ed0752759c11abf3231944"));
@@ -38,7 +40,7 @@ public class SimpleMailServlet extends HttpServlet
 				client.resource("https://api.mailgun.net/v3/www.dineshjaju.com" +
 						"/messages");
 		MultivaluedMapImpl formData = new MultivaluedMapImpl();
-		formData.add("from", name +" PortFolio Contact  <mailgun@dineshjaju.com>");
+		formData.add("from", name +" PortFolio Contact  <mailgun@" + name + ".com>");
 		formData.add("to", "dineshkumarjaju@gmail.com");
 		//formData.add("to", "YOU@YOUR_DOMAIN_NAME");
 		formData.add("subject", "Portfolio Mail");
