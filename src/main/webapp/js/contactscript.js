@@ -8,6 +8,8 @@ function validateForm(argument)
 	if (name.indexOf(' ') >= 0) {		  
 	 	  name = name.split(' ').slice(0, Number.POSITIVE_INFINITY).join(' ');	 	  
      } 
+	
+	alert('name' + name + 'emailId' + emailId + 'message' + message);
 
 	$.ajax(
 		{
@@ -17,7 +19,7 @@ function validateForm(argument)
 			cache: false,
 			success : function()
 			{
-				//alert('Message sent successfully');
+				alert('Message sent successfully');
 				// Success message
             	   $('#success').html("<div class='alert alert-success'>");
             	   $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -32,7 +34,7 @@ function validateForm(argument)
  	      	},
 			error : function()
 			{
-				//alert('Message failed please drop mail directly to dineshkumaraju@gmail.com');
+				alert('Message failed please drop mail directly to dineshkumaraju@gmail.com');
 					// Fail message
  		 		$('#success').html("<div class='alert alert-danger'>");
             	$('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
