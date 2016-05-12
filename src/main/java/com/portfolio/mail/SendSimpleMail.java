@@ -38,4 +38,12 @@ public class SendSimpleMail {
 		return "success " + email.toString() ;
 	}
 
+	
+	@RequestMapping(value="/sendMailTest" , method = RequestMethod.GET)
+	public  @ResponseBody String SendSimpleMessageTest(@RequestBody Email email) 
+	{
+			
+		return "success " + email.toString() ;
+	}
+
 }
