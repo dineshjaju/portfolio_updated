@@ -6,6 +6,16 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          metadata-complete="false">
 
-         
+ <servlet>
+    <description></description>
+    <servlet-name>SimpleMailServlet</servlet-name>
+    <servlet-class>com.portfolio.mail.SimpleMailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SimpleMailServlet</servlet-name>
+    <url-pattern>/sendMailTest</url-pattern>
+  </servlet-mapping>
+  
+           
 </web-app>
 
