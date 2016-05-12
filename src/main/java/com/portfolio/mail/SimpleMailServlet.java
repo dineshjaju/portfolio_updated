@@ -38,8 +38,6 @@ public class SimpleMailServlet extends HttpServlet
 				client.resource("https://api.mailgun.net/v3/www.dineshjaju.com" +
 						"/messages");
 		MultivaluedMapImpl formData = new MultivaluedMapImpl();
-		formData.add("from", "PortFolio Contact " + name +" <mailgun@dineshjaju.com>");
-		formData.add("to", "dineshkumarjaju@gmail.com"); 
 		formData.add("from", name +" PortFolio Contact  <mailgun@dineshjaju.com>");
 		formData.add("to", "dineshkumarjaju@gmail.com");
 		//formData.add("to", "YOU@YOUR_DOMAIN_NAME");
