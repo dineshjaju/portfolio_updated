@@ -9,7 +9,7 @@ function validateForm(argument)
 	 	  name = name.split(' ').slice(0, Number.POSITIVE_INFINITY).join(' ');	 	  
      } 
 	
-	alert('name' + name + 'emailId' + emailId + 'message' + message);
+	alert('name ' + name + 'emailId ' + emailId + 'message ' + message);
 
 	$.ajax(
 		{
@@ -17,9 +17,10 @@ function validateForm(argument)
 			type: "POST",
 			data: {name: name, email: emailId, message: message},
 			cache: false,
-			success : function()
+			success : function(data)
 			{
-				alert('Message sent successfully');
+				alert('Message sent successfully' + data);
+				console.log("SUCCESS: ", data);
 				// Success message
             	   $('#success').html("<div class='alert alert-success'>");
             	   $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -32,9 +33,10 @@ function validateForm(argument)
  		  		//clear all fields
  		  		$('#contactForm').trigger("reset");
  	      	},
-			error : function()
+			error : function(e)
 			{
-				alert('Message failed please drop mail directly to dineshkumaraju@gmail.com');
+				alert('Message failed please drop mail directly to dineshkumaraju@gmail.com '+ e);
+				console.log("ERROR: ", e);
 					// Fail message
  		 		$('#success').html("<div class='alert alert-danger'>");
             	$('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")

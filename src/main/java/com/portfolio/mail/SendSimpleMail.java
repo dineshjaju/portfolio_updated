@@ -35,7 +35,7 @@ public class SendSimpleMail {
 		webResource.type(javax.ws.rs.core.MediaType.APPLICATION_FORM_URLENCODED).
 		post(ClientResponse.class, formData);
 
-		return "success" ;
+		return "success " + email.toString() ;
 	}
 
 }
