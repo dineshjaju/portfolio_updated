@@ -9,7 +9,7 @@ function validateForm(argument)
 	 	  name = name.split(' ').slice(0, Number.POSITIVE_INFINITY).join(' ');	 	  
      } 
 	
-	alert('name ' + name + 'emailId ' + emailId + 'message ' + message);
+	//alert('name ' + name + 'emailId ' + emailId + 'message ' + message);
 
 	$.ajax(
 		{
@@ -19,7 +19,7 @@ function validateForm(argument)
 			cache: false,
 			success : function(data)
 			{
-				alert('Message sent successfully' + data);
+				//alert('Message sent successfully' + data);
 				console.log("SUCCESS: ", data);
 				// Success message
             	   $('#success').html("<div class='alert alert-success'>");

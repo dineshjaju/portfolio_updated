@@ -1,7 +1,5 @@
 $(document).ready(function() {
    
-   
-
     /* Scroll spy and scroll filter */
     $('#main-menu').onePageNav({
         currentClass: "active",
