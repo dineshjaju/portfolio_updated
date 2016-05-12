@@ -15,7 +15,7 @@ function validateForm(argument)
 		{
 			url:"./sendMailTest",
 			type: "GET",
-			data: {name: name, email: emailId, message: message},
+			data: {name: name, emailId: emailId, message: message},
 			cache: false,
 			success : function(data)
 			{
