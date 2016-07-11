@@ -99,7 +99,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 #page-profile {
-    padding: 75px 0;
+    padding: 130px 0;
     background: #fff;
 }
 #page-profile .profile {
@@ -109,12 +109,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 20px 20px 0;
 }
 #page-skills {
-    padding: 75px 0;
+    padding: 160px 0;
     background: #f7f7f7;
     text-align: center;
 }
 #page-education {
-    padding: 75px 0;
+    padding: 170px 0;
     background: #fff;
 }
 #page-experience {
