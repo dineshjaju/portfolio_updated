@@ -1,28 +1,18 @@
-function validateForm(argument) 
-{
-	event.preventDefault();
-	var name = document.forms["contactForm"]["name"].value;
-	var emailId = document.forms["contactForm"]["email"].value;
-	var message = document.forms["contactForm"]["message"].value;	
-
-	if (name.indexOf(' ') >= 0) {		  
-		name = name.split(' ').slice(0, Number.POSITIVE_INFINITY).join(' ');	 	  
-	} 
-
-	//alert('name ' + name + 'emailId ' + emailId + 'message ' + message);
-
-	$.ajax(
-			{
-				url:"./sendMailTest",
-				type: "POST",
-				data: {name: name, emailId: emailId, message: message},
-				cache: false,
-				success : function(data)
-				{
-					//alert('Message sent successfully' + data);
-					console.log("SUCCESS: ", data);
-					// Success message
-					$('#success').html("<div class='alert alert-success'>");
+document.addEventListener('DOMContentLoaded', function () {
+    var form = document.getElementById('contactForm');
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        
+        var formData = new FormData(form);
+        formData.append('from', formData.get('email')); // Mailgun requires 'from' parameter to match the sender's email
+        formData.append('to', 'dineshkumarjaju@gmail.com'); // Your email address where you want to receive the contact form submissions
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://api.mailgun.net/v3/www.dineshjaju.com/messages'); // Replace 'your-domain.com' with your Mailgun domain
+        xhr.setRequestHeader('Authorization', 'Basic ' + btoa('api:fa260c67c51e920d217ccc4206bc55d2-f68a26c9-bf01a27a')); // Replace 'YOUR_API_KEY' with your Mailgun API key
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                $('#success').html("<div class='alert alert-success'>");
 					$('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
 					.append( "</button>");
 					$('#success > .alert-success')
@@ -31,23 +21,22 @@ function validateForm(argument)
 					.append('</div>');
 
 					//clear all fields
-					$('#contactForm').trigger("reset");
-				},
-				error : function(e)
-				{
-					alert('Message failed please drop mail directly to dineshkumarjaju@gmail.com '+ e);
-					console.log("ERROR: ", e);
+				$('#contactForm').trigger("reset");
+            } else {
+                //document.getElementById('response').textContent = 'Error sending message. Please try again later.';
+				alert('Message failed please drop mail directly to dineshkumarjaju@gmail.com '+ e);
+				console.log("ERROR: ", e);
 					// Fail message
-					$('#success').html("<div class='alert alert-danger'>");
-					$('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+				$('#success').html("<div class='alert alert-danger'>");
+				$('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
 					.append( "</button>");
-					$('#success > .alert-danger').append("<strong>Sorry "+name+" it seems that mail server is not responding...</strong> Could you please email me directly to ");
-					$('#success > .alert-danger').append(" <a href='mailto:dineshkumarjaju@gmail.com' style='color:red;'>dineshkumarjaju@gmail.com</a>. Sorry for the inconvenience!");
-					$('#success > .alert-danger').append('</div>'); 				
+				$('#success > .alert-danger').append("<strong>Sorry "+name+" it seems that mail server is not responding...</strong> Could you please email me directly to ");
+				$('#success > .alert-danger').append(" <a href='mailto:dineshkumarjaju@gmail.com' style='color:red;'>dineshkumarjaju@gmail.com</a>. Sorry for the inconvenience!");
+				$('#success > .alert-danger').append('</div>'); 				
 					//clear all fields
-					$('#contactForm').trigger("reset");
-				}
-			}
-
-	);
-}
+				$('#contactForm').trigger("reset");
+            }
+        };
+        xhr.send(formData);
+    });
+});
