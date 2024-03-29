@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'https://api.mailgun.net/v3/www.dineshjaju.com/messages'); // Replace 'your-domain.com' with your Mailgun domain
-        xhr.setRequestHeader('Authorization', 'Basic ' + btoa('api:fa260c67c51e920d217ccc4206bc55d2-f68a26c9-bf01a27a')); // Replace 'YOUR_API_KEY' with your Mailgun API key
+        xhr.setRequestHeader('Authorization', 'Basic ' + btoa('api:')); // Replace 'YOUR_API_KEY' with your Mailgun API key
         xhr.onload = function () {
             if (xhr.status === 200) {
                 $('#success').html("<div class='alert alert-success'>");
